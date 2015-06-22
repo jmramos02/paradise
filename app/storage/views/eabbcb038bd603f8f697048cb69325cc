@@ -1,0 +1,58 @@
+	<?php $__env->startSection('content'); ?>
+	<div class="row">
+		<div class="twelve columns u-max-full-width">
+			<?php echo HTML::image('/uploads/' . $post->image,'image',['class' => 'header-img']); ?>
+
+			<h4><?php echo $post->title; ?></h4>
+			<h6>By: <?php echo $post->user->nickname; ?> 
+			<small><i><?php echo date('F j, Y',strtotime($post->created_at)); ?></i></small></h6>
+			<p><?php echo $post->content; ?></p>
+			<p>Location: <?php echo $post->location; ?></p>
+			<p>Contact Number: <?php echo $post->contact_number; ?></p>
+			<h4>Comments</h4>
+			<?php if(count($comments) == 0): ?>
+				<small>No comments yet</small>
+			<?php else: ?>
+				<?php foreach($comments as $comment): ?>
+					<h6 class = "header-comment"><?php echo $comment->user->nickname; ?></h6>
+					<p class = "comment"><?php echo $comment->comment; ?></p>
+					<p class = "comment"><?php echo date('F j, Y',strtotime($comment->created_at)); ?></p>
+				<?php endforeach; ?>
+				<?php echo $comments->links(); ?>
+
+			<?php endif; ?>
+			<br>
+			<?php if(!is_null(Auth::user())): ?>
+			   <?php echo Form::open(['url' => '/comment/' . $post->id . '/add']); ?>
+
+					<?php echo Form::label('comment','Add a comment'); ?>
+
+					<?php echo Form::textarea('comment'); ?>
+
+					<button class = "button-primary u-full-width">Submit</button>
+				<?php echo Form::close(); ?>
+
+			<?php else: ?>
+				<small>Click <?php echo HTML::link('/login','here',['class' => 'link-color']); ?> to login </small>
+			<?php endif; ?>
+		</div>
+	</div>
+	<?php if(count($packages) != 0): ?>
+	<div class="row">
+		<h4>Book Now! </h4>
+		<?php foreach($packages as $package): ?>
+			<div class="twelve columns">
+				Package: <?php echo $package->title; ?>
+
+				<p><?php echo $package->description; ?></p>
+				Price: <?php echo $package->price; ?>
+
+				<?php echo HTML::link('/book/' . $package->id,'Book Package ' . $package->title . ' Now!', ['class' => 'button button-primary u-max-full-width u-full-width']); ?>
+
+			</div>
+		<?php endforeach; ?>
+	</div>
+	<?php endif; ?>
+
+	<?php $__env->stopSection(); ?>
+<?php echo $__env->make('template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

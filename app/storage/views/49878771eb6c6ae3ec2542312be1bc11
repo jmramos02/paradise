@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Find your next destination - Paradise.ph</title>
+	<?php echo HTML::style('lib/normalize.css'); ?>
+
+	<?php echo HTML::style('lib/skeleton.css'); ?>
+
+	<?php echo HTML::style('css/style.css'); ?>
+
+</head>
+<body>
+	<div class="container">
+		<div class="row top-bar">
+			<div class="twelve columns u-max-full-width logo-wrapper">
+				<?php echo HTML::image('img/loogo.png','Logo',['class' => 'logo']); ?>
+
+			</div>
+			<?php echo Form::open(['url' => '/search','method' => 'GET']); ?>
+
+			<div class="twelve columns search u-max-full-width">
+				<input type="text" class = "u-max-full-width" name = "search" id = "search-box" placeholder = "Search using title">
+			</div>
+			<div class = "twelve columns u-max-full-width search">
+				<button class = "button-primary search-button">Search</button>
+			</div>
+			<?php echo Form::close(); ?>
+
+		</div>
+		<!--Nav-->
+
+		<div class="row">
+			<div class="twelve columns navigation">
+				<ul>
+					<li><?php echo HTML::link('/','Home'); ?></li>
+					<li><?php echo HTML::link('/categories','Categories'); ?></li>
+					<?php if(is_null(Auth::user())): ?>
+						<li><?php echo HTML::link('/login','Login'); ?></li>
+						<li><?php echo HTML::link('/register','Register'); ?></li>
+					<?php else: ?>
+						<li><?php echo HTML::link('/post','Manage Posts'); ?></li>
+						<li><?php echo HTML::link('/booking','Manage Bookings'); ?></li>
+					<?php endif; ?>
+				</ul>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="twelve">
+				<?php if(!is_null(Auth::user())): ?>
+					<div class = "remember">Hello! <?php echo Auth::user()->nickname; ?> (<?php echo HTML::link('/logout','Logout'); ?>) </div>
+				<?php endif; ?>	
+			</div>
+		</div>
+		<?php if($errors->has()): ?>
+			<div class="row">
+				<div class="error-box twelve columns">
+					<?php foreach($errors->all() as $error): ?>
+			     		 <div class = "error"><?php echo $error; ?></div>
+			 		<?php endforeach; ?>
+				</div>
+			</div>
+		<?php endif; ?>
+
+		<?php if(Session::has('message')): ?>
+			<div class="row">
+				<div class="notification-box twelve columns">
+					<div class="notification"><?php echo Session::get('message'); ?></div>	
+				</div>
+			</div>
+		<?php endif; ?>
+		
+		<?php echo $__env->yieldContent('content'); ?>
+
+		<div class="row out">
+			<div class="twelve columns footer u-max-full-width">
+				<ul>
+					<li>About Us</li>
+					<li>&copy; Copyright 2015</li>
+					<li>Contact Us</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

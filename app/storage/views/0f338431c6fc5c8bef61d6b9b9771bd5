@@ -1,0 +1,21 @@
+	<?php $__env->startSection('content'); ?>
+	<div class="row">
+		<div class="twelve columns">
+			<a class = "button button-primary u-full-width" href = "/booking/create">Create a Package</a>
+		</div>
+	</div>
+	<div class="row">
+		<?php foreach($bookings as $book): ?>
+			<div class="twelve columns">
+				<?php echo $book->post()->first()->title; ?> <br>
+				Contact Number: <?php echo $book->contact_number; ?> <br>
+				Quantity: <?php echo $book->quantity; ?> <br>
+				Reservation Date: <?php echo date('F j, Y',strtotime($book->created_at)); ?> <br>
+				Name : <?php echo $book->user()->first()->firstname; ?> <?php echo $book->user()->first()->lastname; ?> 
+			</div>
+		<?php endforeach; ?>	
+	</div>
+	<?php echo $bookings->links(); ?>
+
+	<?php $__env->stopSection(); ?>
+<?php echo $__env->make('template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

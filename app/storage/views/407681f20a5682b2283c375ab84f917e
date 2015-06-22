@@ -1,0 +1,17 @@
+	<?php $__env->startSection('content'); ?>
+	<!-- Loop the divs jm.-->
+	<div class="row">
+		<?php foreach($posts as $post): ?>
+		<div class="twelve columns u-max-full-width">
+			<?php echo HTML::image('uploads/' . $post->image,'',['class' => 'header-img']); ?>
+
+			<h4><?php echo $post->title; ?></h4>
+			<h6>By: <?php echo $post->user->nickname; ?></h6>
+			<p><?php echo substr($post->content,0,120); ?>... <?php echo HTML::link('/post/' . $post->id . '/view','See more',['class' => 'see-more']); ?>
+
+			</p>
+		</div>
+		<?php endforeach; ?>
+	</div>
+	<?php $__env->stopSection(); ?>
+<?php echo $__env->make('template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

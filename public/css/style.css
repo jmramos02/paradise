@@ -1,0 +1,151 @@
+@font-face{
+	font-family:'Raleway';
+	src: url('../fonts/Raleway-Regular.ttf');
+}
+label {
+	font-size:2em;
+}
+h4 {
+	font-size:5em;
+}
+h6 {
+	font-size:4.5em;
+}
+.top-bar{
+	background-color:#4B8CF7;
+	padding:2em;
+}
+input[type="text"], input[type="password"], input[type="file"]{
+	padding:5%;
+	width:95%;
+	font-size:2em;
+}
+input[type="checkbox"] {
+	height:2em;
+	width:2em;
+}
+button {
+	font-size:2em;
+}
+.button {
+	font-size:2em;
+}
+.button-primary {
+	padding:1em;
+	padding-bottom:2em;
+}
+.white{
+	color:white;
+}
+.search{
+	margin:auto;
+	text-align:center;
+}
+.search-box {
+	margin:auto;
+	width:100%;
+}
+.row{
+	padding-top:10px;
+	padding-left:5px;
+	padding-right:5px;
+}
+.header-img {
+	width:100%;
+	height:auto;
+}
+.footer li{
+	float:left;
+	list-style-type: none;
+	font-size:2em;
+	padding-right:0.75em;
+	padding-left:0.75em;
+	padding-bottom:0.5em;
+	padding-top:0.5em;															
+	text-align:center;
+}
+.navigation {
+	font-size:2em;
+}
+.navigation li{
+	float:left;
+	list-style-type: none;
+	padding-right:1.5em;	
+	text-align:center;
+}
+.navigation  a {
+	font-weight:bold;																																																												
+}
+.navigation a:hover{
+	color:#4B81AA;
+}
+.out {
+	background-color:#4B8CF7;
+	color:white;
+	text-align:center;
+}
+.logo {
+	height:auto;
+	max-width:80%;
+	margin:auto;
+}
+a{
+	text-decoration: none;
+	color: #4B8CF7;
+}
+a :hover {
+	color:black;
+}
+.error {
+	color:red;
+	font-size:11px;
+	padding-top:5px;
+	padding-left:5px;
+}
+.error-box {
+	border:1px solid red;
+}
+.comment {
+	font-size:10px;
+	margin:5px;
+}
+.header-comment {
+	font-size:12px;
+	color:#4B8CF7;
+	margin:0px;
+}
+.pagination li{
+	list-style-type: none;
+	float:left;
+	padding-right:5px;
+}
+textarea , select{
+	width:100%;
+	height:auto;
+	font-size:10px;
+}
+.link-color {
+	color: #4B8CF7;
+}
+.notification {
+	color: #4B8CF7;
+	font-size:11px;
+	padding-top:5px;
+	padding-left:5px;
+}
+.notification-box {
+	border:1px solid #4B8CF7;
+}
+.logo-wrapper {
+	text-align:center;
+}
+.search-button {
+	width:95%;
+}
+.remember {
+	font-size:2.5em;
+}
+textarea, select {
+	padding:5%;
+	font-size:2.5em;
+}
