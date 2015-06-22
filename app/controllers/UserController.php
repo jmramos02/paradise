@@ -47,7 +47,7 @@ class UserController extends BaseController {
 				return Redirect::to('/');
 			} else {
 				Session::flash('message','Username or Password is incorrect');
-				return Redirect::to('/');
+				return Redirect::to('/login');
 			}
 
 		}

@@ -6,12 +6,12 @@
 			<h4>{{$post->title}}</h4>
 			<h6>By: {{$post->user->nickname}} 
 			<small><i>{{date('F j, Y',strtotime($post->created_at))}}</i></small></h6>
-			<p>{{$post->content}}</p>
-			<p>Location: {{$post->location}}</p>
-			<p>Contact Number: {{$post->contact_number}}</p>
+			<p class = "content">{{$post->content}}</p>
+			<p class = "content">Location: {{$post->location}}</p>
+			<p class = "content">Contact Number: {{$post->contact_number}}</p>
 			<h4>Comments</h4>
 			@if(count($comments) == 0)
-				<small>No comments yet</small>
+				<div class = "content">No comments yet</div>
 			@else
 				@foreach($comments as $comment)
 					<h6 class = "header-comment">{{$comment->user->nickname}}</h6>
@@ -28,7 +28,7 @@
 					<button class = "button-primary u-full-width">Submit</button>
 				{{Form::close()}}
 			@else
-				<small>Click {{HTML::link('/login','here',['class' => 'link-color'])}} to login </small>
+				<p class = "content">Click {{HTML::link('/login','here',['class' => 'link-color'])}} to login </p>
 			@endif
 		</div>
 	</div>

@@ -3,9 +3,9 @@
 	<div class="row">
 		<div class="twelve columns">
 			<h4>Booking Details: </h4>
-			<div>Package: {{$package->title}}</div>
-			<div>Description: {{$package->description}}</div>
-			<div>Price per Head: {{$package->price}}</div>
+			<div class = "content">Package: {{$package->title}}</div>
+			<div class = "content">Description: {{$package->description}}</div>
+			<div class = "content">Price per Head: {{$package->price}}</div>
 		</div>
 		{{Form::open(['url'	=> '/book/' . $package->id])}}
 		<div class="twelve columns">

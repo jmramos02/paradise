@@ -7,7 +7,7 @@
 	</div>
 	<div class="row">
 		@foreach($bookings as $book)
-			<div class="twelve columns">
+			<div class="twelve columns content">
 				{{$book->post()->first()->title}} <br>
 				Contact Number: {{$book->contact_number}} <br>
 				Quantity: {{$book->quantity}} <br>
