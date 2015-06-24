@@ -34,3 +34,4 @@ Route::get('/search/cafe','UserController@cafe');
 Route::get('/search/resorts','UserController@resorts');
 Route::get('/search/etc','UserController@etc');
 Route::get('/search',"UserController@search");
+Route::get('/contactus', 'UserController@contact');

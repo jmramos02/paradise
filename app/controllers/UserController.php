@@ -36,7 +36,7 @@ class UserController extends BaseController {
 		if($validator->fails()) {
 
 			return Redirect::to('/')->withErrors($validator);
-		
+
 		} else {
 
 			$email = Input::get('email');
@@ -53,7 +53,7 @@ class UserController extends BaseController {
 		}
 	}
 
-	public function register() 
+	public function register()
 	{
 
 		if(Auth::check()) {
@@ -150,5 +150,10 @@ class UserController extends BaseController {
 		$search = Input::get('search');
 		$posts = Post::where('title','LIKE',"%$search%")->orderBy('updated_at','desc')->paginate(3);
 		return View::make('search',compact('posts'));
+	}
+
+	public function contact()
+	{
+		return View::make('contact');
 	}
 }

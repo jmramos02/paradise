@@ -44,7 +44,7 @@
 			<div class="twelve">
 				@if(!is_null(Auth::user()))
 					<div class = "remember">Hello! {{Auth::user()->nickname}} ({{HTML::link('/logout','Logout')}}) </div>
-				@endif	
+				@endif
 			</div>
 		</div>
 		@if($errors->has())
@@ -60,11 +60,11 @@
 		@if(Session::has('message'))
 			<div class="row">
 				<div class="notification-box twelve columns">
-					<div class="notification">{{Session::get('message')}}</div>	
+					<div class="notification">{{Session::get('message')}}</div>
 				</div>
 			</div>
 		@endif
-		
+
 		@yield('content')
 
 		<div class="row out">
@@ -72,7 +72,7 @@
 				<ul>
 					<li>About Us</li>
 					<li>&copy; Copyright 2015</li>
-					<li>Contact Us</li>
+					<li><a href="/contactus" style="color:white;">Contact Us</a></li>
 				</ul>
 			</div>
 		</div>
